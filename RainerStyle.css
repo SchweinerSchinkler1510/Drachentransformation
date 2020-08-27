@@ -1,26 +1,42 @@
-/* Banner */
-[role="banner"] {
-	background: url("../Bilder/Design02.svg") no-repeat right, #000
-		repeating-linear-gradient(-45deg, black, #151515 8em);
-	background-size: contain, auto;
-	padding: 0 0 0.5em;
+/* Hintergrund vektor Grafik */
+.home {
+	background-image: linear-gradient(45deg, #1c003d, #5c3a45, #967846, #d1bb3c);
+	background-position: center;
+	background-size: cover;
+	background-color: #1C003D;
 }
 
-[role="banner"] h1, [role="banner"] h2 {
-	max-width: 60em;
-	margin: 0 auto;
-	font-family: 'Roboto', sans-serif;
-	font-variant: small-caps;
-	font-weight: lighter;
-	font-size: 2em;
-	text-align: center;
-	color: #eee;
+/* Banner und Überschriften */
+.banner {
+    max-width: 100%;
+    margin: 0 auto;
+    font-family: alfa-slab-one;
+    font-variant: small-caps;
+    font-weight: 400;
+    font-size: 3em;
+    text-align: left;
+    color: #eee;
+    font-style: normal;
+    background-image: url("Bilder/HeaderHintergrund2.png")
 }
 
-[role="banner"] p {
+.HeaderSchriftPart1 {
+	color: #1C003D;
+	font-size: 60;
+}
+
+.HeaderSchriftPart2 {
 	color: #FFFFFF;
-	font-family: 'Roboto', sans-serif;
-	font-size: 1em;
+	font-size: 60px;
+	font-family: coda-caption;
+}
+
+.HeaderSchriftPart3 {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-family: coda-caption;
+    font-variant: normal;
+    font-style: normal;
 	text-align: center;
 }
 
@@ -32,26 +48,38 @@
 	text-align: center;
 }
 
-/* Tabelle Statur 
-.tableAllgemein {
-	width: 100%;
+.tableStatur {
+	width:100%;
 	margin-left: auto;
 	margin-right: auto;
 	display: flex;
 	justify-content: space-around;
-	border-spacing: 13px 1px;
-}*/
+	border-spacing: 13px 13px;
+}
 
-.tableAllgemein img {
-	width: 100%;
-	height: 100%;
-	border-radius: 40%;
+.StaturHeader {
+    color: #1C003D;
+    font-size: 2em;
+    font-family: alfa-slab-one;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.tableStatur img {
+    width: 100%;
+    height: 100%;
+    border-radius: 40%;
+}
+
+.tableHeaderFooterStatur {
+	color: #D1BB3C;
+	font-size: 1.3em;
 }
 
 /*Buttons Statur */
 .buttonStaturAktiv {
 	display: inline-block;
-	width: 50%;
+	width: 80%;
 	padding: 5px 5px;
 	font-size: 24px;
 	cursor: pointer;
@@ -59,50 +87,54 @@
 	text-decoration: none;
 	outline: none;
 	color: #fff;
-	background-color: #161618;
+	background-color: #B09431;
 	border: none;
-	border-radius: 15px;
-	box-shadow: 0 9px #999;
+	border-radius: 50px;
+	box-shadow: 0 13px #907416;
 }
 
 .buttonStaturAktiv:hover {
-	background-color: #ee4d2e;
+	background-color: #D1BB3C;
 }
 
 .buttonStaturAktiv:active {
-	background-color: #ee4d2e;
-	box-shadow: 0 5px #666;
-	transform: translateY(4px);
+	background-color: #D1BB3C;
+	box-shadow: 0 9px #D1BB3C;
+	transform: translateY(7px);
 }
 
 .buttonStaturAktiv:disabled,
 buttonStaturAktiv[disabled]{
-	background-color: #ee4d2e;
-	box-shadow: 0 5px #666;
-	transform: translateY(4px);
+	background-color: #907416;
+	box-shadow: 0 9px #907416;
+	transform: translateY(2px);
 }
 
-/* Sektion Anzeige Stats */
-.anzeigeStats {
-	color: #000000;
+/* Sektion Anzeige Budget */
+.anzeigeBudget {
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.5em;
 	text-align: center;
-	
 }
 
-/* Tabelle Stats */
-.tableStats {
-	width: 30%;
-	margin-left: auto;
-	margin-right: auto;
-	display: flex;
-	justify-content: space-around;
-	border-spacing: 13px 13px;
-	border: 1px solid black;
+.tableStatsBudget {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-around;
+    border-spacing: 13px 13px;
+    border: 3px solid #D1BB3C;
+    font-family: alfa-slab-one;
+    font-variant: small-caps;
+    font-size: 1.5em;
+    text-align: center;
+    color: #E3CF51;
+    font-style: normal;
+    font-weight: 400;
 }
 
-/* Button Neustart */ 
+/* Button Neustart/Reload */ 
 .buttoNeustartaktiv {
 	display: inline-block;
 	width: 20%;
@@ -129,7 +161,6 @@ buttonStaturAktiv[disabled]{
 	transform: translateY(4px);
 }
 
-
 /* Sektion Auswahl Gerichte */
 .auswahlGerichte {
 	color: #000000;
@@ -138,20 +169,14 @@ buttonStaturAktiv[disabled]{
 	text-align: center;
 }
 
-/* Tabelle Gerichte */
-.tableAllgemein {
+.tableAuswahlGerichte {
 	width:100%;
+	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	display: flex;
 	justify-content: space-around;
 	border-spacing: 13px 13px;
-}
-
-.buttonGerichtAktiv img {
-	width: 100%;
-	height: 100px;
-	border-radius: 10%;
 }
 
 /*Buttons Gerichte */
@@ -168,24 +193,94 @@ buttonStaturAktiv[disabled]{
 	background-color: #161618;
 	border: none;
 	border-radius: 20px;
-	box-shadow: 0 9px #999;
+	box-shadow: 0 11px #907416;
 }
 
 .buttonGerichtAktiv:hover {
-	background-color: #ee4d2e;
+	background-color: #D1BB3C;
+	color: #1C003D;
 }
 
 .buttonGerichtAktiv:active {
-	background-color: #ee4d2e;
-	box-shadow: 0 5px #666;
+	background-color: #D1BB3C;
+	box-shadow: 0 5px #DEC561;
+	transform: translateY(2px);
+	color: #1C003D;
+}
+
+.buttonGerichtAktiv:disabled,
+buttonGerichtAktiv[disabled]{
+	background-color: #49494E;
+	box-shadow: 0 5px #DEC561;
 	transform: translateY(4px);
 }
 
 /* Sektion Ergebnis */
+.tableStatsErgebnis {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-around;
+    border-spacing: 13px 13px;
+    border: 3px solid #D1BB3C;
+    font-family: coda-caption;
+    font-variant: small-caps;
+    font-size: 1.5em;
+    text-align: center;
+    color: #E3CF51;
+    font-style: normal;
+    font-weight: 400;
+}
+
 .anzeigeErgebnis {
 	color: #000000;
-	font-family: 'Roboto', sans-serif;
+	font-family: alfa-slab-one;
 	font-size: 1em;
 	text-align: center;
 	display: none;
+}
+
+.ErgebnisHeader {
+	color: #E3CF51;
+}
+
+.TagesbedarfAllgemein {
+	background-color: #290751;
+}
+
+.sumWerte {
+	color: #000000;
+}
+
+#sumSättigung {
+	background-color: #ff0000;
+}
+
+#sumKalorien {
+	background-color: #ff0000;
+}
+
+#sumFett {
+	background-color: #ff0000;
+}
+
+#sumKohlenhydrate {
+	background-color: #ff0000;
+}
+
+#sumZucker {
+	background-color: #ff0000;
+}
+
+#sumProteine {
+	background-color: #ff0000;
+}
+
+#sumSalz {
+	background-color: #ff0000;
+}
+
+#sumVitamine {
+	background-color: #ff0000;
 }
