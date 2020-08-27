@@ -1,195 +1,195 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
-<head>
+	<head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="RainerStyle.css">
-<script src="RainerScripts.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+		<link rel="stylesheet" type="text/css" href="RainerStyle.css"></link>
+		<script src="RainerScripts.js"></script>
+		<script src="http://use.edgefonts.net/bowlby-one:n4:default;alfa-slab-one:n4:default;bebas-neue:n4:default;black-ops-one:n4:default;bowlby-one-sc:n4:default;changa-one:n4:default;chunk:n4:default;coda-caption:n8:default;nobile:n4:default;cabin:n4:default.js" type="text/javascript"></script>
 
-<title>Rainer Mastsau</title>
+		<title>Rainer Mastsau</title>
 
-</head>
+	</head>
 
-<body class="home">
+	<body class="home">
 
-	<header role="banner">
+		<header class="banner">
+			<!-- Definition des Headers inklusive Überschriften -->
 
-	<h1>Drachentransformation- Rainer W. Edition</h1>
-	<p>Du wolltest scho imma mal wissne wie es ist als YouTube-Star in die Rewe die Euro nauszuschmaßn?</p>
-	<p>Du hast kaum noch Hartz-Geld übrig und musst versuchne in die Rewe all das einzukaufn, um den Tagesbedarf des Bodybuilders Rainer W. zu deckne.</p>
-	<p>Wähle deine Bodybuilder-Statur, um den Schwierigkeitsgrad zu steigern und dein Budget ein wenig zu erhöhen. <br>
-	Aufgrund deiner Behinderung kannst du nicht mit Zahlen umgehen, also die Preise nicht lesen, und kaufst entsprechend nach Gefühl ein.</p>
-	<p>Okay Alla, lets shop Alla!</p>
+			<h1 class="HeaderSchriftPart1"><strong>Drachentransformation&nbsp;<em class="HeaderSchriftPart2">Rainer W. Edition</em></strong></h1> 
+			<h3 class="HeaderSchriftPart3">Rainer W., YouTube-Star & Bodybuilder geht einkaufen. Schaffst du es mit einem Einkauf all seine Nährwerte zu decken, du Kagghaiderasozialer?</h3>
+			<h3 class="HeaderSchriftPart3">Aufgrund deiner Behinderung kannst du nicht mit Zahlen umgehen, also die Preise nicht lesen, und kaufst entsprechend nach Gefühl ein.</h3>
 
-	</header>
+		</header>
 
-	<main> <section class="auswahlStatur">
-
-	<h1>Wähle deine aktuelle Drachenstatur</h1>
-
-	<table class="tableAllgemein">
-
-		<tr>
-			<td>Rainer 2013</td>
-			<td>Rainer 2017</td>
-			<td>Rainer 2020</td>
-		</tr>
-
-		<tr>
-			<td>
-				<button id="buttonStaturAktiv1" class="buttonStaturAktiv" type="button"
-					onclick="setFaktor(1)">
-					<img src="Bilder/RainerStatur1" />
-				</button>
-			</td>
-			<td>
-				<button id="buttonStaturAktiv2" class="buttonStaturAktiv" type="button"
-					onclick="setFaktor(1.2)">
-					<img src="Bilder/RainerStatur2" />
-				</button>
-			</td>
-
-			<td>
-				<button id="buttonStaturAktiv3" class="buttonStaturAktiv" type="button"
-					onclick="setFaktor(1.5)">
-					<img src="Bilder/RainerStatur3" />
-				</button>
-			</td>
-		</tr>
-
-		<tr>
-			<td>150 Kg</td>
-			<td>185 Kg</td>
-			<td>210 Kg</td>
-		</tr>
-
-	</table>
-	</section> <br>
-
-	<section class="anzeigeStats">
-	<table class="tableStats">
-		<tr>
-			<td>Du hast noch</td>
-			<td id="sumBudget">40.00
-				</button>
-			</td>
-			<td>Euro</td>
-		</tr>
-	</table>
-	</section> <section id="anzeigeErgebnis" class="anzeigeErgebnis"> <br>
-
-	<table class="tableStats">
-		<tr>
-			<td>Du hast dein ganzes Hartz ausgegeben, Speckbeppo. Na, bist du
-				satt?</td>
-		</tr>
-	</table>
-
-	<br>
-
-	<table class="tableStats">
-
-		<tr>
-			<th></th>
-			<th>Zugeführt
-			<th id="tableHeaderFaktor">Tagesbedarf)</th>
-
-		</tr>
-
-		<tr>
-			<td>Sättigung:</td>
-			<td id="sumSättigung">0</td>
-			<td id="tagSättigung">0</td>
-		</tr>
-
-		<tr>
-			<td>Kalorien:</td>
-			<td id="sumKalorien">0</td>
-			<td id="tagKalorien">0</td>
-		</tr>
-
-		<tr>
-			<td>Fett:</td>
-			<td id="sumFett">0</td>
-			<td id="tagFett">0</td>
-		</tr>
-		<tr>
-			<td>Kohlenhydrate:</td>
-			<td id="sumKohlenhydrate">0</td>
-			<td id="tagKohlenhydrate">0</td>
-		</tr>
-		<tr>
-			<td>davon Zucker:</td>
-			<td id="sumZucker">0</td>
-			<td id="tagZucker">0</td>
-		</tr>
-		<tr>
-			<td>Proteine:</td>
-			<td id="sumProteine">0</td>
-			<td id="tagProteine">0</td>
-		</tr>
-
-		<tr>
-			<td>Salz:</td>
-			<td id="sumSalz">0</td>
-			<td id="tagSalz">0</td>
-		</tr>
-
-		<tr>
-			<td>Vitamine:</td>
-			<td id="sumVitamine">0</td>
-			<td id="tagVitamine">0</td>
-		</tr>
-
-	</table>
-	
-	<br>
-	
-	<button class="buttoNeustartaktiv" type="button"
-				onclick="location.reload()">Nochmal ab in die Rewe (neustarten)</button>
-
-	</section> <br>
-
-	<section id="auswahlGerichte" class="auswahlGerichte">
-
-	<table class="tableAllgemein">
-
-		<td><button class="buttonGerichtAktiv" type="button"
-				onclick="auswahlGericht(Ofenkäse)">Ofenkäse</button></td>
-		<td><button class="buttonGerichtAktiv" type="button"
-				onclick="auswahlGericht(Dosenravioli)">Dosenravioli</button></td>
-		<td><button class="buttonGerichtAktiv" type="button"
-				onclick="auswahlGericht(Kinderschokolade)">Kinderschokolade</button></td>
-		<td><button class="buttonGerichtAktiv" type="button"
-				onclick="auswahlGericht(CordonBleu)">CordonBleu</button></td>
-		</tr>
-		<tr>
-			<td><button class="buttonGerichtAktiv" type="button"
-					onclick="auswahlGericht(Kroketten)">Kroketten</button></td>
-			<td><button class="buttonGerichtAktiv" type="button"
-					onclick="auswahlGericht(Laugenbrezeln)">Laugenbrezeln</button></td>
-			<td><button class="buttonGerichtAktiv" type="button"
-					onclick="auswahlGericht(FertigHotdogs)">FertigHotdogs</button></td>
-			<td><button class="buttonGerichtAktiv" type="button"
-					onclick="auswahlGericht(FertigBurger)">FertigBurger</button></td>
-		</tr>
-		<tr>
+		<main> 
 		
-			<td><button class="buttonGerichtAktiv" type="button"
-					onclick="auswahlGericht(Buttermilch)">Buttermilch</button></td>
-			<td><button class="buttonGerichtAktiv" type="button"
-					onclick="auswahlGericht(Würfelzucker)">Würfelzucker</button></td>
-			<td><button class="buttonGerichtAktiv" type="button"
-					onclick="auswahlGericht(Jägertopf)">Jägertopf</button></td>
-			<td><button class="buttonGerichtAktiv" type="button"
-					onclick="auswahlGericht(Monster)">Monster</button></td>
-		
-		</tr>
-	</table>
-	</section> 
-	</main>
+			<section class="auswahlStatur">
+			<!-- Auswahl des Status. Basierend auf der Statur wird ein Faktor gesetzt, welcher den später angezeigten Tagesbedarf bestimmt -->
 
-</body>
+				<p class="StaturHeader">Wähle deine aktuelle Drachenstatur</p>
+
+					<table class="tableStatur">
+
+						<tr>
+							<th class="tableHeaderFooterStatur">Rainer 2013</th>
+							<th class="tableHeaderFooterStatur">Rainer 2017</th>
+							<th class="tableHeaderFooterStatur">Rainer 2020</th>
+						</tr>
+
+						<tr>
+							<td>
+								<button id="buttonStaturAktiv1" class="buttonStaturAktiv" type="button" onclick="setFaktor(1)"><img src="Bilder/RainerStatur1" /></button>
+							</td>
+							<td>
+								<button id="buttonStaturAktiv2" class="buttonStaturAktiv" type="button" onclick="setFaktor(1.2)"><img src="Bilder/RainerStatur2" /></button>
+							</td>
+							<td>
+								<button id="buttonStaturAktiv3" class="buttonStaturAktiv" type="button" onclick="setFaktor(1.5)"><img src="Bilder/RainerStatur3" /></button>
+							</td>
+						</tr>
+
+						<tr>
+							<th class="tableHeaderFooterStatur">150 Kg</th>
+							<th class="tableHeaderFooterStatur">185 Kg</th>
+							<th class="tableHeaderFooterStatur">210 Kg</th>
+						</tr>
+
+					</table>
+
+				<!-- Restart/Neustart-Button. Kann jederzeit angeklickt werden -->
+				<button class="buttoNeustartaktiv" type="button"
+				onclick="reloadPage()">Nochmal ab in die Rewe (neustarten)</button>
+
+			</section> <br>
+
+			<section class="anzeigeBudget">
+			<!-- Anzeige des noch zu verbleibenden Budgets -->
+				
+				<table class="tableStatsBudget">
+					
+					<tr>
+						<td>Du hast noch</td>
+						<td id="sumBudget">15.10</td>
+						<td>Euro</td>
+					</tr>
+		
+				</table>
+
+			</section> 
+
+			<section id="auswahlGerichte" class="auswahlGerichte">
+			<!-- Auswahl der Gerichte. Kann beliebig erweitert werden -->
+
+				<table class="tableAuswahlGerichte">
+					
+					<tr>
+						<td><button class="buttonGerichtAktiv" id="GerichtOfen" type="button" onclick="auswahlGericht(Ofenkäse)">Ofenkäse</button></td>
+						<td><button class="buttonGerichtAktiv" id="GerichtDosenravioli" type="button" onclick="auswahlGericht(Dosenravioli)">Dosenravioli</button></td>
+						<td><button class="buttonGerichtAktiv" id="GerichtKinderschokolade" type="button" onclick="auswahlGericht(Kinderschokolade)">Kinderschokolade</button></td>
+						<td><button class="buttonGerichtAktiv" id="GerichtCordonBleu" type="button" onclick="auswahlGericht(CordonBleu)">Cordon Bleu</button></td>
+					</tr>
+					
+					<tr>
+						<td><button class="buttonGerichtAktiv" id="GerichtKroketten" type="button" onclick="auswahlGericht(Kroketten)">Kroketten</button></td>
+						<td><button class="buttonGerichtAktiv" id="GerichtLaugenbrezeln" type="button" onclick="auswahlGericht(Laugenbrezeln)">Laugenbrezeln</button></td>
+						<td><button class="buttonGerichtAktiv" id="GerichtFertighotdogs" type="button" onclick="auswahlGericht(FertigHotdogs)">Fertighotdogs</button></td>
+						<td><button class="buttonGerichtAktiv" id="GerichtFertigBurger" type="button" onclick="auswahlGericht(FertigBurger)">Fertigburger</button></td>
+					</tr>
+					
+					<tr>
+						<td><button class="buttonGerichtAktiv" id="GerichtButtermilch" type="button" onclick="auswahlGericht(Buttermilch)">Buttermilch</button></td>
+						<td><button class="buttonGerichtAktiv" id="GerichtWürfelzucker" type="button" onclick="auswahlGericht(Würfelzucker)">Würfelzucker</button></td>
+						<td><button class="buttonGerichtAktiv" id="GerichtJägertopf" type="button" onclick="auswahlGericht(Jägertopf)">Jägertopf</button></td>
+						<td><button class="buttonGerichtAktiv" id="GerichtMonster" type="button" onclick="auswahlGericht(Monster)">Monster</button></td>
+					</tr>
+					
+				</table>
+				
+			</section>
+			
+			<section id="anzeigeErgebnis" class="anzeigeErgebnis"> <br>
+			<!-- Anzeige des Ergebnisses. Abgleich zwischen zugeführten Nährwerten, basierenden auf den gekauften Produkten, und dem Tagesbedarf, basierend auf der Statur -->
+				
+				<table class="tableStatsBudget">
+					
+					<tr>
+						<td>Du hast dein ganzes Hartz ausgegeben, Speckbeppo. Na, bist du satt?</td>
+					</tr>
+					
+				</table>
+
+				<br>
+
+				<table class="tableStatsErgebnis">
+
+					<tr>
+						<th></th>
+						<th class="ErgebnisHeader">Zugeführte Nährwerte</th>
+						<th class="ErgebnisHeader" id="tableHeaderFaktor">Tagesbedarf)</th>
+					</tr>
+
+					<tr>
+						<td class="TagesbedarfAllgemein">Sättigung:</td>
+						<td id="sumSättigung" class="sumWerte">0</td>
+						<td class="TagesbedarfAllgemein" id="tagSättigung">0</td>
+					</tr>
+
+					<tr>
+						<td class="TagesbedarfAllgemein">Kalorien:</td>
+						<td id="sumKalorien" class="sumWerte">0</td>
+						<td class="TagesbedarfAllgemein" id="tagKalorien">0</td>
+					</tr>
+
+					<tr>
+						<td class="TagesbedarfAllgemein">Fett:</td>
+						<td id="sumFett" class="sumWerte">0</td>
+						<td class="TagesbedarfAllgemein" id="tagFett">0</td>
+					</tr>
+					
+					<tr>
+						<td class="TagesbedarfAllgemein">Kohlenhydrate:</td>
+						<td id="sumKohlenhydrate" class="sumWerte">0</td>
+						<td class="TagesbedarfAllgemein" id="tagKohlenhydrate">0</td>
+					</tr>
+					
+					<tr>
+						<td class="TagesbedarfAllgemein">davon Zucker:</td>
+						<td id="sumZucker" class="sumWerte">0</td>
+						<td class="TagesbedarfAllgemein" id="tagZucker">0</td>
+					</tr>
+					
+					<tr>
+						<td class="TagesbedarfAllgemein">Proteine:</td>
+						<td id="sumProteine" class="sumWerte">0</td>
+						<td class="TagesbedarfAllgemein" id="tagProteine">0</td>
+					</tr>
+
+					<tr>
+						<td class="TagesbedarfAllgemein">Salz:</td>
+						<td id="sumSalz" class="sumWerte">0</td>
+						<td class="TagesbedarfAllgemein" id="tagSalz">0</td>
+					</tr>
+
+					<tr>
+						<td class="TagesbedarfAllgemein">Vitamine:</td>
+						<td id="sumVitamine" class="sumWerte">0</td>
+						<td class="TagesbedarfAllgemein" id="tagVitamine">0</td>
+					</tr>
+
+					<tr>
+						<th></th>
+						<th></th>
+						<th id="faktorErgebnis">0</th>
+					</tr>
+
+				</table>
+
+			</section> 			
+			
+		</main>
+
+	</body>
 
 </html>
