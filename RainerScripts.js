@@ -11,7 +11,7 @@ var Laugenbrezeln = new Gericht("Laugenbrezeln", 5, 331, 29, 0.5, 17, 0, 1.7, 0,
 var FertigHotdogs = new Gericht("FertigHotdogs", 4, 331, 29, 0.5, 17, 0, 1.7, 0, 4.29);
 var FertigBurger = new Gericht("FertigBurger", 6, 331, 29, 0.5, 17, 0, 1.7, 0, 4.29);
 var Buttermilch = new Gericht("Buttermilch", 5, 331, 29, 0.5, 17, 0, 1.7, 0, 4.29);
-var Würfelzucker = new Gericht("Würfelzucker", 2, 331, 29, 0.5, 17, 0, 1.7, 0, 4.29);
+var Würfelzucker = new Gericht("Würfelzucker", 2, 331, 29, 0.5, 17, 0, 0, 0, 0.86);
 var Jägertopf = new Gericht("Jägertopf", 5, 331, 29, 0.5, 17, 0, 1.7, 0, 4.29);
 var Monster = new Gericht("Monster", 2, 331, 0, 60, 60, 0, 0.075, 0, 4.29);
 
@@ -20,6 +20,10 @@ var Statur = 0;
 var faktor = 0;
 var gewicht = 0;
 var sumBudget = 15.10;
+var sumAusgabe = 0;
+var Spielmodus = 2;
+var anzeigeSpielmodus = "";
+var anzeigeBudget = "∞";
 
 // Definition zugeführter Nährwerte der einzelnen Gerichte
 var GerichtName;
@@ -45,19 +49,81 @@ var tagSalz = 5;
 
 // Definition der Soundeffekte
 var audioStatur = new Audio('Audio/stohn.mp3');
-audioStatur.play();
+//audioStatur.play();
+
+var audioStatur2 = new Audio('Audio/Ah_ja.mp3');
+//audioStatur2.play();
+
+var audioStatur3 = new Audio('Audio/zurholle.mp3');
+//audioStatur3.play();
 
 var audioKasse = new Audio('Audio/ReweKasseBeep.mp3');
-audioKasse.play();
+//audioKasse.play();
 
 var audioErgebnis = new Audio('Audio/VerdammteAxt.mp3');
-audioErgebnis.play();
+//audioErgebnis.play();
 
-var audioNeustart = new Audio('Audio/niemandunterkriegen.mp3');
-audioNeustart.play();
+//var audioNeustart = new Audio('Audio/niemandunterkriegen.mp3');
+//audioNeustart.play();
+
+var audioModusEndlos = new Audio('Audio/absichtlich.mp3');
+//audioModusEndlos.play();
+
+var audioModusNormal = new Audio('Audio/biddeferlassuns.mp3');
+//audioModusNormal.play();
+
+var audioNeustart = new Audio('Audio/biddeferlassuns.mp3');
+//audioModusNormal.play();
+
+
+// Funktion zur Auswahl des Spielmodus
+function auswahlSpielmodus(modus){
+	
+	if(modus == 2){
+		Spielmodus = 2;
+		anzeigeSpielmodus = "Normal";
+		audioModusNormal.play();
+		changeButtonsGamemode();
+	} else {  
+		Spielmodus = 3;
+		anzeigeSpielmodus = "Endlos";
+		audioModusEndlos.play();
+		changeButtonsGamemode();
+		}
+}
+
+function changeButtonsGamemode(){
+	
+	//Spielmodus-Buttons deaktivieren
+	document.getElementById("buttonSpielmodusNormal").disabled = true;
+	document.getElementById("buttonSpielmodusEndlos").disabled = true;
+	document.getElementById("buttonChangeReset").disabled = false;
+	document.getElementById("Spielmodus").innerHTML = anzeigeSpielmodus;
+	
+	//Statur-Buttons aktivieren
+	document.getElementById("buttonStaturAktiv1").disabled = false;
+	document.getElementById("buttonStaturAktiv2").disabled = false;
+	document.getElementById("buttonStaturAktiv3").disabled = false;
+	
+	if(Spielmodus == 2){
+		//Setze Anzeigewert Budget
+		document.getElementById("sumBudget").innerHTML = "15.10";
+		
+	} else {
+		//Setze Anzeigewert Budget
+		document.getElementById("sumBudget").innerHTML = "∞";
+	}
+}
 
 // Timeout-Funktion, die automatisch nach Aufruf/Reload der Seite die Gerichtsbutton deaktiviert (wusste nicht wie man das anders lösen soll. Evtl per Eventhandler)
 setTimeout(function disableButtonsGerichte(){
+	
+	/* Statur-Buttons */
+	document.getElementById("buttonStaturAktiv1").disabled = true;
+	document.getElementById("buttonStaturAktiv2").disabled = true;
+	document.getElementById("buttonStaturAktiv3").disabled = true;
+	
+	/* Gericht-Buttons */
 	document.getElementById("GerichtOfen").disabled = true;
 	document.getElementById("GerichtDosenravioli").disabled = true;
 	document.getElementById("GerichtKinderschokolade").disabled = true;
@@ -70,12 +136,35 @@ setTimeout(function disableButtonsGerichte(){
 	document.getElementById("GerichtWürfelzucker").disabled = true;
 	document.getElementById("GerichtJägertopf").disabled = true;
 	document.getElementById("GerichtMonster").disabled = true;
+	
+	/* CheckOut-Button */
+	document.getElementById("buttonCheckout").disabled = true;
 	}, 1);
 
 // Berechnung des benötigten Tagesbedarfs basierend auf der Statur bzw dem Gewicht
 function setFaktor(Statur) {
+	
+	if(Statur == 1){
+		audioStatur.play();
+	} else {
+		if(Statur == 1.2){ 
+		audioStatur2.play();
+	} else {
+		audioStatur3.play();
+	}
+	}
+	
+	if(Spielmodus == 2){
+		sumBudget = sumBudget * Statur;
+	} else {
+		if(Spielmodus == 3){
+			sumBudget = 99999999;
+		} else {
+			sumBudget = sumBudget * Statur;
+		}
+	}
+
 	faktor = Statur;
-	sumBudget = sumBudget * Statur;
 	tagSättigung = tagSättigung * Statur;
 	tagKalorien = tagKalorien * Statur;
 	tagFett = tagFett * Statur;
@@ -85,8 +174,11 @@ function setFaktor(Statur) {
 	tagVitamine = tagVitamine * Statur;
 	tagSalz = tagSalz * Statur;
 	
-	audioStatur.play();
-	document.getElementById("sumBudget").innerHTML = sumBudget.toFixed(2);
+	if(Spielmodus == 2){
+		document.getElementById("sumBudget").innerHTML = sumBudget.toFixed(2);
+	} else {
+		document.getElementById("sumBudget").innerHTML = "∞";
+	}
 	
 	// Aufruf der Funktionen um Statur-Buttons zu deaktivieren und Gerichts-Buttons zu aktiveren
 	disableButtonsStatur(Statur);
@@ -99,18 +191,25 @@ function disableButtonsStatur(Statur) {
 	document.getElementById("buttonStaturAktiv1").disabled = true;
 	document.getElementById("buttonStaturAktiv2").disabled = true;
 	document.getElementById("buttonStaturAktiv3").disabled = true;
-	
+
 	if (Statur == 1){
-		document.getElementById("buttonStaturAktiv1").style.backgroundColor = "#DEC561";
+		//document.getElementById("buttonStaturAktiv1").style.backgroundColor = "#DEC561";
+		
+		document.getElementById("buttonStaturAktiv2").style.backgroundColor = "#DEC561";
+		document.getElementById("buttonStaturAktiv3").style.backgroundColor = "#DEC561";
 		gewicht = 150;
 	} 
 	else {
 		if (Statur == 1.2) {
-			document.getElementById("buttonStaturAktiv2").style.backgroundColor = "#DEC561";
+			//document.getElementById("buttonStaturAktiv2").style.backgroundColor = "#DEC561";
+			document.getElementById("buttonStaturAktiv1").style.backgroundColor = "#DEC561";
+			document.getElementById("buttonStaturAktiv3").style.backgroundColor = "#DEC561";
 			gewicht = 185;
 		}
 		else {
-			document.getElementById("buttonStaturAktiv3").style.backgroundColor = "#DEC561";
+			//document.getElementById("buttonStaturAktiv3").style.backgroundColor = "#DEC561";
+			document.getElementById("buttonStaturAktiv1").style.backgroundColor = "#DEC561";
+			document.getElementById("buttonStaturAktiv2").style.backgroundColor = "#DEC561";
 			gewicht = 210;
 		}
 	}
@@ -130,11 +229,11 @@ function enableButtonsGerichte() {
 	document.getElementById("GerichtWürfelzucker").disabled = false;
 	document.getElementById("GerichtJägertopf").disabled = false;
 	document.getElementById("GerichtMonster").disabled = false;
+	document.getElementById("buttonCheckout").disabled = false;
 }
 
-// Funktion die aufgerufen wird, um ein neues Gericht als Objekt zu erzeigen
-function Gericht(GerichtName, Sättigung, Kalorien, Fett, Kohlenhydrate, Zucker,
-		Proteine, Vitamine, Salz, Kosten) {
+// Funktion die aufgerufen wird, um ein neues Gericht als Objekt zu erzeugen
+function Gericht(GerichtName, Sättigung, Kalorien, Fett, Kohlenhydrate, Zucker, Proteine, Vitamine, Salz, Kosten) {
 	this.GerichtName = GerichtName;
 	this.Sättigung = Sättigung;
 	this.Kalorien = Kalorien;
@@ -152,7 +251,7 @@ function Gericht(GerichtName, Sättigung, Kalorien, Fett, Kohlenhydrate, Zucker,
 function auswahlGericht(Gericht) {
 
 	if (sumBudget > Gericht.Kosten) {
-
+		
 		sumSättigung = sumSättigung + Gericht.Sättigung;
 		sumKalorien = sumKalorien + Gericht.Kalorien;
 		sumFett = sumFett + Gericht.Fett;
@@ -163,6 +262,7 @@ function auswahlGericht(Gericht) {
 		sumSalz = sumSalz + Gericht.Salz;
 		sumKosten = sumKosten + Gericht.Kosten;
 		sumBudget = sumBudget - Gericht.Kosten;
+		sumAusgabe = sumAusgabe + Gericht.Kosten;
 		
 		audioKasse.play();
 		
@@ -171,7 +271,6 @@ function auswahlGericht(Gericht) {
 
 	} else {
 
-		
 		redo2();
 
 	}
@@ -179,37 +278,32 @@ function auswahlGericht(Gericht) {
 
 // Funktion die die aktualisierten Nährwerte auf die HTML-Seite überträgt
 function redo() {
-	document.getElementById("sumBudget").innerHTML = sumBudget.toFixed(2)
+	
+	if (Spielmodus == 2){
+		document.getElementById("sumBudget").innerHTML = sumBudget.toFixed(2);
+	} else {
+		document.getElementById("sumBudget").innerHTML = "∞";
+	}
 
+	document.getElementById("sumAusgabe").innerHTML = sumAusgabe.toFixed(2);
+	
 	document.getElementById("tableHeaderFaktor").innerHTML = "Tagesbedarf (x" + faktor + ")"
 	document.getElementById("faktorErgebnis").innerHTML = "Kampfgewicht " + gewicht + " Kg"
-
 	document.getElementById("sumSättigung").innerHTML = sumSättigung + " %"
 	document.getElementById("sumKalorien").innerHTML = sumKalorien + " kcal"
 	document.getElementById("sumFett").innerHTML = sumFett.toFixed(2) + " g"
-	document.getElementById("sumKohlenhydrate").innerHTML = sumKohlenhydrate
-			.toFixed(2)
-			+ " g"
-	document.getElementById("sumZucker").innerHTML = sumZucker.toFixed(2)
-			+ " g"
-	document.getElementById("sumProteine").innerHTML = sumProteine.toFixed(2)
-			+ " g"
-	document.getElementById("sumVitamine").innerHTML = sumVitamine.toFixed(2)
-			+ " g"
+	document.getElementById("sumKohlenhydrate").innerHTML = sumKohlenhydrate.toFixed(2) + " g"
+	document.getElementById("sumZucker").innerHTML = sumZucker.toFixed(2) + " g"
+	document.getElementById("sumProteine").innerHTML = sumProteine.toFixed(2) + " g"
+	document.getElementById("sumVitamine").innerHTML = sumVitamine.toFixed(2) + " g"
 	document.getElementById("sumSalz").innerHTML = sumSalz.toFixed(2) + " g"
-
 	document.getElementById("tagSättigung").innerHTML = tagSättigung + " %"
 	document.getElementById("tagKalorien").innerHTML = tagKalorien + " kcal"
 	document.getElementById("tagFett").innerHTML = tagFett.toFixed(2) + " g"
-	document.getElementById("tagKohlenhydrate").innerHTML = tagKohlenhydrate
-			.toFixed(2)
-			+ " g"
-	document.getElementById("tagZucker").innerHTML = tagZucker.toFixed(2)
-			+ " g"
-	document.getElementById("tagProteine").innerHTML = tagProteine.toFixed(2)
-			+ " g"
-	document.getElementById("tagVitamine").innerHTML = tagVitamine.toFixed(2)
-			+ " g"
+	document.getElementById("tagKohlenhydrate").innerHTML = tagKohlenhydrate.toFixed(2) + " g"
+	document.getElementById("tagZucker").innerHTML = tagZucker.toFixed(2) + " g"
+	document.getElementById("tagProteine").innerHTML = tagProteine.toFixed(2) + " g"
+	document.getElementById("tagVitamine").innerHTML = tagVitamine.toFixed(2) + " g"
 	document.getElementById("tagSalz").innerHTML = tagSalz.toFixed(2) + " g"
 }
 
@@ -282,7 +376,11 @@ function redo2() {
 
 // Funktion die per Klick auf den Button die Seite neuläd
 function reloadPage() {
-	//audioNeustart.play();
+	document.getElementById("buttonChangeReset").disabled = true;
+	audioNeustart.play();
 	location.reload();
 }
+
+// Funktion die "Reload" deaktiviert und aktiviert "Ab zum Warenkorb"
+
 
