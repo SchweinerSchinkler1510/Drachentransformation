@@ -14,7 +14,6 @@ var Buttermilch = new Gericht("Buttermilch", 5, 331, 29, 0.5, 17, 0, 1.7, 0, 4.2
 var Würfelzucker = new Gericht("Würfelzucker", 2, 331, 29, 0.5, 17, 0, 0, 0, 0.86);
 var Jägertopf = new Gericht("Jägertopf", 5, 331, 29, 0.5, 17, 0, 1.7, 0, 4.29);
 var Monster = new Gericht("Monster", 2, 331, 0, 60, 60, 0, 0.075, 0, 4.29);
-
 // Definiton variabler Variablen (lel)
 var Statur = 0;
 var faktor = 0;
@@ -66,10 +65,10 @@ var audioErgebnis = new Audio('Audio/VerdammteAxt.mp3');
 //var audioNeustart = new Audio('Audio/niemandunterkriegen.mp3');
 //audioNeustart.play();
 
-var audioModusEndlos = new Audio('Audio/absichtlich.mp3');
+var audioModusEndlos = new Audio('Audio/warumeh.mp3');
 //audioModusEndlos.play();
 
-var audioModusNormal = new Audio('Audio/biddeferlassuns.mp3');
+var audioModusNormal = new Audio('Audio/warumeh.mp3');
 //audioModusNormal.play();
 
 var audioNeustart = new Audio('Audio/biddeferlassuns.mp3');
@@ -288,7 +287,6 @@ function redo() {
 	document.getElementById("sumAusgabe").innerHTML = sumAusgabe.toFixed(2);
 	
 	document.getElementById("tableHeaderFaktor").innerHTML = "Tagesbedarf (x" + faktor + ")"
-	document.getElementById("faktorErgebnis").innerHTML = "Kampfgewicht " + gewicht + " Kg"
 	document.getElementById("sumSättigung").innerHTML = sumSättigung + " %"
 	document.getElementById("sumKalorien").innerHTML = sumKalorien + " kcal"
 	document.getElementById("sumFett").innerHTML = sumFett.toFixed(2) + " g"

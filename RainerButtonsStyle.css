@@ -62,7 +62,7 @@ buttonGerichtAktiv[disabled]{
 	background-color: #B09431;
 }
 
-.buttonStaturAktiv:active {
+.buttonStaturAktiv:active:enabled {
 	background-color: #1C003D;
 	box-shadow: 0 9px #D1BB3C;
 	transform: translateY(7px);
